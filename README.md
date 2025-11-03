@@ -1,4 +1,4 @@
-# 🧱 StruoCV - Resume Builder
+# 🧱 MakeCV - Resume Builder
 
 ## 📝 Description
 **StruoCV** is a web application that allows users to **create, customize, and download a professional resume** easily and quickly.  
