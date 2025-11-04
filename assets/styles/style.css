@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.progress_bar {
+  transition: width 0.4s ease;
+}
+.active-progress{
+    background: blue;
+ 
+}
+
+.progress__icons{
+    background-color: white;
+    color: black;
+}
+.active-icon{
+    background: blue;
+    color: white;
+}
+.visbility{
+    display: none;
+}
