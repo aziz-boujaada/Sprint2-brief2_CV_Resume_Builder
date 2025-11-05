@@ -9,17 +9,38 @@
 }
 .active-progress{
     background: blue;
- 
 }
 
 .progress__icons{
     background-color: white;
     color: black;
 }
-.active-icon{
-    background: blue;
-    color: white;
+.progress__icons.active-icon{
+   background: blue;
+   color: white;
 }
 .visbility{
     display: none;
 }
+
+input{
+    width: 100%;
+    height: 2rem;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    border: 1px solid gray;
+    color: rgb(1, 60, 255);
+}  
+section{
+    margin-top: 1rem;
+}
+
+/* button{
+    background-color: rgb(10, 10, 224);
+    padding: 0.5rem;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    width: 10rem;
+} */
