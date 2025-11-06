@@ -1,6 +1,10 @@
 
 import { switchPersonalInfoForms } from "./forms/switch_Forms.js";
-import { allFormsValidation } from "./forms/form_validation.js";
+import { personal_infoValidation } from "./forms/form_validation.js";
+import { EducationFormValidate } from "./forms/form_validation.js";
+
+
+
 const nextButton = document.querySelector(".next_btn");
 const previousButton = document.querySelector(".previuos_btn");
 const progressBar = document.querySelector(".progress_bar");
@@ -54,7 +58,14 @@ function showSections() {
 }
 showSections();
 nextButton.addEventListener("click", () => {
-  const isValid = allFormsValidation();
+
+  let isValid = false;
+ if(currentStep == 1){
+  isValid = personal_infoValidation()
+ }else if(currentStep == 2){
+  isValid = EducationFormValidate() 
+   
+ }
   
   if (isValid && currentStep < totalSteps) {
     currentStep++;
@@ -72,4 +83,4 @@ previousButton.addEventListener("click", () => {
   }
 });
 switchPersonalInfoForms()
-
+personal_infoValidation()

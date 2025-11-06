@@ -261,10 +261,11 @@
                 >
                 <input
                   type="text"
-                  id="location"
+                  id="school_location"
                   placeholder="Your Location"
                   class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
+                  <span class="school_location_error  input-errors"></span>
               </div>
 
               <div class="flex gap-4 mb-4">
@@ -278,6 +279,7 @@
                     placeholder="Your eduaction description ..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                   <span class="school_description_error  input-errors"></span>
                 </div>
               </div>
               <div class="save_education text-right">
@@ -306,6 +308,7 @@
                     required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="job_title_error  input-errors"></span>
                 </div>
                 <div class="mb-4">
                   <label for="company_name" class="block font-semibold mb-1"
@@ -318,6 +321,7 @@
                     required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="company_name_error  input-errors"></span>
                 </div>
                 <div class="flex gap-4 mb-4">
                   <div class="w-1/2">
@@ -333,6 +337,7 @@
                       required
                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
+                    <span class="start_ex_error  input-errors"></span>
                   </div>
                   <div class="w-1/2">
                     <label
@@ -346,6 +351,7 @@
                       placeholder="EX:01/01/2050"
                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
+                    <span class="end_ex_error  input-errors"></span>
                   </div>
                 </div>
 
@@ -360,6 +366,7 @@
                     required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="company_location_error  input-errors"></span>
                 </div>
 
                 <div class="mb-4 relative">
@@ -372,6 +379,7 @@
                     placeholder="EX:Devloped web application for company ..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="achivment_error  input-errors"></span>
                   <span
                     id="add_achievment"
                     class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
@@ -424,9 +432,10 @@
                 <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
                   Skills
                 </h3>
+                <div class="">
                 <div class="mb-4 relative">
                   <label for="skills" class="block font-semibold mb-1"
-                    >Skills</label
+                    >Hard Skills</label
                   >
                   <input
                     type="text"
@@ -435,13 +444,34 @@
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
                   <span
-                    id="add_achievment"
+                    id="add_hardSkill"
                     class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
                     >+</span
                   >
                 </div>
-                <!--display skills-->
-                <div id="display_skills"></div>
+                <!--display hard skill-->
+                <div id="display_hardSkill"></div>
+
+                <div class="mb-4 relative">
+                  <label for="skills" class="block font-semibold mb-1"
+                    >soft Skills</label
+                  >
+                  <input
+                    type="text"
+                    id="skills"
+                    placeholder="EX:team working , time managment  ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <span
+                    id="add_softSkill"
+                    class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                    >+</span
+                  >
+                </div>
+                   <!--display soft skill-->
+                <div id="display_softSkill"></div>
+                </div>
+               
 
                 <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
                   Certificate
