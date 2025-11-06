@@ -39,7 +39,9 @@
               </div>
             </div>
             <div class="personal_info">
-              <p class="absolute top-[-42px] left-[32%]">Education</p>
+              <p class="absolute top-[-42px] left-[20%]">
+                Education & profissionell Experience
+              </p>
               <div
                 class="progress__icons education-icon text-center p-3 rounded-full absolute top-[-20px]"
               >
@@ -47,13 +49,13 @@
               </div>
             </div>
             <div class="personal_info">
-              <p class="absolute top-[-42px] right-[20%]">
-                Experions profissionell
+              <p class="absolute top-[-42px] right-[23%]">
+                Profile Information
               </p>
               <div
                 class="progress__icons experienc-icon text-center p-3 rounded-full absolute top-[-20px]"
               >
-                <i class="fa-solid fa-briefcase"></i>
+                <i class="fa-solid fa-address-card"></i>
               </div>
             </div>
             <div class="personal_info">
@@ -67,54 +69,69 @@
           </div>
         </div>
         <!--section of personal information-->
-        <div class="streper_buttons mt-12 flex gap-3 justify-around mx-[120px]">
-          <button
-            class="previuos_btn bg-gray-600 text-white w-20 p-2 rounded-sm"
-          >
-            Previuos
-          </button>
-          <button class="next_btn bg-blue-800 text-white w-20 p-2 rounded-sm">
-            Next
-          </button>
-        </div>
-
+      
 
         <section id="personal__information" class="visbility">
           <div class="flex items-center justify-center p-6">
             <form
               action="#"
-              class="bg-white p-6 rounded-md shadow-lg w-full max-w-lg"
+              class="bg-white p-6 rounded-md shadow-lg w-full max-w-3xl"
             >
               <h2 class="text-center text-xl font-bold text-blue-800 mb-6">
                 Personal Information
               </h2>
 
-              <div class="flex flex-col items-center mb-6 ">
-                <label for="image" class="text-gray-600 mb-2"
-                  >Upload Your Image</label
-                >
-                <input
-                  type="file"
-                  id="image"
-                  name="image"
-                  accept="image/*"
-                  class="text-sm text-gray-500 bg-slate-200 border-none outline-none p-1"
-                />
+              <div class="flex flex-col items-center mb-6">
+                <div class="flex items-center justify-center w-full">
+                  <label
+                    for="dropzone-file"
+                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                  >
+                    <div
+                      class="flex flex-col items-center justify-center pt-5 pb-6"
+                    >
+                      <svg
+                        class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 16"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                        />
+                      </svg>
+                      <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                        <span class="font-semibold">Click to upload</span> or
+                        drag and drop
+                      </p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">
+                        SVG, PNG, JPG or GIF (MAX. 800x400px)
+                      </p>
+                    </div>
+                    <input id="dropzone-file" type="file" class="hidden" />
+                  </label>
+                </div>
               </div>
-
+              <!--full name-->
               <div class="mb-4">
                 <label for="name" class="block font-semibold mb-1"
                   >Full Name</label
                 >
                 <input
                   type="text"
-                  id="name"
+                  id="full_name"
                   placeholder="Full Name"
                   required
                   class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
+                <span class="name_error  input-errors" ></span>
               </div>
-
+              <!--email & phone-->
               <div class="flex gap-4 mb-4">
                 <div class="w-1/2">
                   <label for="email" class="block font-semibold mb-1"
@@ -127,6 +144,7 @@
                     required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                   <span class="email_error  input-errors" ></span>
                 </div>
                 <div class="w-1/2">
                   <label for="phone" class="block font-semibold mb-1"
@@ -135,12 +153,13 @@
                   <input
                     type="tel"
                     id="phone"
-                    placeholder="+1 234 567 890"
+                    placeholder="+212 625415263"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                   <span class="phone_error  input-errors" ></span>
                 </div>
               </div>
-
+              <!--adresse a-->
               <div class="mb-4">
                 <label for="address" class="block font-semibold mb-1"
                   >Address</label
@@ -151,59 +170,49 @@
                   placeholder="Your Address"
                   class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
+                 <span class="adresse_error  input-errors" ></span>
               </div>
 
-              <div class="flex gap-4 mb-4">
+              <div class="relative flex gap-4 mb-4">
                 <div class="w-full">
-                  <label for="linkedin" class="block font-semibold mb-1"
+                  <label for="links" class="block font-semibold mb-1"
                     >links (linkedin , GitHub , Portfolio)</label
                   >
                   <input
                     type="text"
-                    id="linkedin_url"
-                    placeholder="Your LinkedIn URL"
+                    id="links"
+                    placeholder="Your links EX: linkedin , GitHub , facebook..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="links_error  input-errors" ></span>
                 </div>
-                <!-- <div class="w-1/2">
-                  <label for="github" class="block font-semibold mb-1"
-                    >GitHub</label
-                  >
-                  <input
-                    type="text"
-                    id="github_url"
-                    placeholder="Your GitHub URL"
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-              </div>
-              <div class="portfolio_url mb-4">
-                <label for="portfolio" class="block font-semibold mb-1"
-                  >Portfolio</label
-                > -->
-                <!-- <input
-                  type="text"
-                  id="portfolio_url"
-                  placeholder="Your Portfolio URL"
-                  class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                /> -->
+                <span
+                  id="add_link"
+                  class="absolute right-4 top-7 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                  >+</span
+                >
+                <!--display links-->
+                <div id="display_links"></div>
               </div>
             </form>
           </div>
         </section>
-        <!--section of education-->
-        <section id="education" class="visbility">
-             <div class="flex items-center justify-center p-6">
+
+        <!--section of education and profissionell experience-->
+        <section id="education_pro-experience" class="visbility">
+          <div class="flex items-center justify-center p-6">
             <form
               action="#"
-              class="bg-white p-6 rounded-md shadow-lg w-full max-w-lg"
+              class="bg-white p-6 rounded-md shadow-lg w-full max-w-3xl"
             >
               <h2 class="text-center text-xl font-bold text-blue-800 mb-6">
-                Education Information
+                Education Information && profissionell Experience
               </h2>
-
-    
-
+              <!--education-->
+              <h3 class="text-lg text-center text-gray-500 font-bold">
+                Eduaction
+              </h3>
+              <!--school bname -->
               <div class="mb-4">
                 <label for="school_name" class="block font-semibold mb-1"
                   >School Name</label
@@ -215,6 +224,7 @@
                   required
                   class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
+                <span class="school_name_error  input-errors"></span>
               </div>
 
               <div class="flex gap-4 mb-4">
@@ -229,6 +239,7 @@
                     required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="date_start_error  input-errors"></span>
                 </div>
                 <div class="w-1/2">
                   <label for="end_date" class="block font-semibold mb-1"
@@ -240,6 +251,7 @@
                     placeholder="EX:01/01/2050"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                   <span class="date_end_error  input-errors"></span>
                 </div>
               </div>
 
@@ -267,21 +279,315 @@
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
                 </div>
-    
               </div>
-              <div class="save_education">
-                <button id="save_education" class="bg-blue-800 text-white p-1 rounded-full">Save +</button>
+              <div class="save_education text-right">
+                <button
+                  id="save_education"
+                  class="bg-blue-800 text-white p-2 rounded-full"
+                >
+                  Add school +
+                </button>
               </div>
+              <!--div for display education saved-->
+              <div id="saved_education"></div>
+
+              <div id="experience_form">
+                <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
+                  profissionell Experience
+                </h3>
+                <div class="mb-4">
+                  <label for="job_title" class="block font-semibold mb-1"
+                    >Job title</label
+                  >
+                  <input
+                    type="text"
+                    id="job_title"
+                    placeholder="Job Title EX: Full-stack Developer ..."
+                    required
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="company_name" class="block font-semibold mb-1"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    id="company_name"
+                    placeholder="Company Name EX:Tesla ..."
+                    required
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+                <div class="flex gap-4 mb-4">
+                  <div class="w-1/2">
+                    <label
+                      for="start_date-experienc"
+                      class="block font-semibold mb-1"
+                      >Date of start</label
+                    >
+                    <input
+                      type="date"
+                      id="start_date-experienc"
+                      placeholder="EX:01/11/2025"
+                      required
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                  </div>
+                  <div class="w-1/2">
+                    <label
+                      for="end_date-experience"
+                      class="block font-semibold mb-1"
+                      >Date of End or (present)</label
+                    >
+                    <input
+                      type="date"
+                      id="end_date"
+                      placeholder="EX:01/01/2050"
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="company location" class="block font-semibold mb-1"
+                    >Company Location
+                  </label>
+                  <input
+                    type="text"
+                    id="company_loaction"
+                    placeholder="EX:Casablanca / Rabat ..."
+                    required
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+
+                <div class="mb-4 relative">
+                  <label for="Achievment" class="block font-semibold mb-1"
+                    >Achivement</label
+                  >
+                  <input
+                    type="text"
+                    id="achievment"
+                    placeholder="EX:Devloped web application for company ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <span
+                    id="add_achievment"
+                    class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                    >+</span
+                  >
+                </div>
+              </div>
+              <div class="save_education text-right">
+                <button
+                  id="save_experience"
+                  class="bg-blue-800 text-white p-2 rounded-full"
+                >
+                  Add Experience +
+                </button>
+              </div>
+              <!--display the experiece that saved -->
+              <div id="saved_experience"></div>
+              <!--profile information-->
             </form>
           </div>
         </section>
         <!--section of experience profissionell-->
-        <section id="experience__pro" class="visbility">pro experience</section>
+        <section id="profile_information" class="visbility relative">
+          <!--switch between froms buttons-->
+          <div class="switch_forms_btns flex items-center justify-between">
+            <button
+              id="prev_form"
+              class="should_toClick absolute top-1/2 left-20 text-3xl text-center p-1 bg-gray-300 rounded-full hover:text-blue-600 transition-all"
+            >
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button
+              id="next_form"
+              class="should_toClick absolute top-1/2 right-20 text-3xl text-center p-1 bg-gray-300 rounded-full hover:text-blue-600 transition-all"
+            >
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+
+          <!--skills and certificate form-->
+          <div class="profile_info_visibility" id="skills_cirtificat_form">
+            <div class="flex items-center justify-center p-6">
+              <form
+                action=""
+                class="bg-white p-6 rounded-md shadow-lg w-full max-w-3xl"
+              >
+                <h2 class="text-center text-xl font-bold text-blue-800 mb-6">
+                  Skills & Certificate
+                </h2>
+                <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
+                  Skills
+                </h3>
+                <div class="mb-4 relative">
+                  <label for="skills" class="block font-semibold mb-1"
+                    >Skills</label
+                  >
+                  <input
+                    type="text"
+                    id="skills"
+                    placeholder="EX:HTML , CSS , JS , REACT  ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <span
+                    id="add_achievment"
+                    class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                    >+</span
+                  >
+                </div>
+                <!--display skills-->
+                <div id="display_skills"></div>
+
+                <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
+                  Certificate
+                </h3>
+
+                <div class="mb-4 relative">
+                  <label for="skills" class="block font-semibold mb-1"
+                    >Certificate Name</label
+                  >
+                  <input
+                    type="text"
+                    id="certificate_name"
+                    placeholder="EX:front-end certificate ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+
+                <div class="mb-4 relative">
+                  <label for="date of gettin" class="block font-semibold mb-1"
+                    >Date of Getting</label
+                  >
+                  <input
+                    type="date"
+                    id="certificate_date"
+                    placeholder="EX: ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+
+                <div class="mb-4 relative">
+                  <label
+                    for="Certificate Source"
+                    class="block font-semibold mb-1"
+                    >Certificate Source</label
+                  >
+                  <input
+                    type="text"
+                    id="certificate-source"
+                    placeholder="EX: Google , IBM , LinkedIn ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+                <div class="save_education text-right">
+                  <button
+                    id="save_experience"
+                    class="bg-blue-800 text-white p-2 rounded-full"
+                  >
+                    Add Certificate +
+                  </button>
+                </div>
+                <!--display Certificate div-->
+                <div id="display_certificate"></div>
+              </form>
+            </div>
+          </div>
+          <!--langueges and hobbie form-->
+          <div class="profile_info_visibility" id="langueges_hobbies">
+            <div class="flex items-center justify-center p-6">
+              <form
+                action=""
+                class="bg-white p-6 rounded-md shadow-lg w-full max-w-3xl"
+              >
+                <h2 class="text-center text-xl font-bold text-blue-800 mb-6">
+                  Langueges & Hobbies
+                </h2>
+                <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
+                  Hobbies
+                </h3>
+                <div class="mb-4 relative">
+                  <label for="hobbies" class="block font-semibold mb-1"
+                    >hobies</label
+                  >
+                  <input
+                    type="text"
+                    id="hobbies"
+                    placeholder="EX:Camping , Gaming   ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <span
+                    id="add_hobbies"
+                    class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                    >+</span
+                  >
+                </div>
+                <!--display hobbies-->
+                <div id="display_hobbies"></div>
+
+                <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
+                  Langueges
+                </h3>
+
+                <div class="mb-4 relative">
+                  <label for="langueges" class="block font-semibold mb-1"
+                    >Langueges</label
+                  >
+                  <input
+                    type="text"
+                    id="langueges"
+                    placeholder="EX:Arabic , English , French ..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+
+                <div class="mb-4 relative">
+                  <label for="languege level" class="block font-semibold mb-1"
+                    >Langueges level</label
+                  >
+                  <input
+                    type="text"
+                    id="level_lang"
+                    placeholder="EX: A1 , B1 , B2 , C1"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
+
+                <div class="save_education text-right">
+                  <button
+                    id="save_experience"
+                    class="bg-blue-800 text-white p-2 rounded-full"
+                  >
+                    Add Languege +
+                  </button>
+                </div>
+
+                <!--display Languge div-->
+                <div id="display_languege"></div>
+              </form>
+            </div>
+          </div>
+        </section>
         <!--uplaod cv section-->
         <section id="uploadCv" class="visbility">upload cv</section>
+
+          <div class="streper_buttons mt-12 flex gap-3 justify-around mx-[120px]">
+          <button
+            class="previuos_btn bg-gray-600 text-white w-20 p-2 rounded-sm"
+          >
+            Previuos
+          </button>
+          <button class="next_btn bg-blue-800 text-white w-20 p-2 rounded-sm">
+            Next
+          </button>
+        </div>
       </section>
     </main>
 
-    <script src="./assets/js/app.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
   </body>
 </html>

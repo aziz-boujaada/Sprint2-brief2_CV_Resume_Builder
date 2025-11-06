@@ -1,3 +1,6 @@
+
+import { switchPersonalInfoForms } from "./forms/switch_Forms.js";
+import { allFormsValidation } from "./forms/form_validation.js";
 const nextButton = document.querySelector(".next_btn");
 const previousButton = document.querySelector(".previuos_btn");
 const progressBar = document.querySelector(".progress_bar");
@@ -5,8 +8,8 @@ const personlaInfoIcon = document.querySelector(".personal_info--icon");
 const porogressIcons = document.querySelectorAll(".progress__icons");
 
 const personalInfoSection = document.getElementById("personal__information");
-const educationSection = document.getElementById("education");
-const experienceProSection = document.getElementById("experience__pro");
+const education_Pro_experiencSection = document.getElementById("education_pro-experience");
+const profileInfoSection = document.getElementById("profile_information");
 const uploadCvSection = document.getElementById("uploadCv");
 
 let progress = 0;
@@ -40,18 +43,20 @@ function showSections() {
     ? personalInfoSection.classList.remove("visbility")
     : personalInfoSection.classList.add("visbility");
   currentStep == 2
-    ? educationSection.classList.remove("visbility")
-    : educationSection.classList.add("visbility");
+    ? education_Pro_experiencSection.classList.remove("visbility")
+    : education_Pro_experiencSection.classList.add("visbility");
   currentStep == 3
-    ? experienceProSection.classList.remove("visbility")
-    : experienceProSection.classList.add("visbility");
+    ? profileInfoSection.classList.remove("visbility")
+    : profileInfoSection.classList.add("visbility");
   currentStep == 4
     ? uploadCvSection.classList.remove("visbility")
     : uploadCvSection.classList.add("visbility");
 }
 showSections();
 nextButton.addEventListener("click", () => {
-  if (currentStep < totalSteps) {
+  const isValid = allFormsValidation();
+  
+  if (isValid && currentStep < totalSteps) {
     currentStep++;
     updateProgressBar();
     showSections();
@@ -66,3 +71,5 @@ previousButton.addEventListener("click", () => {
       updateActiveIcon()
   }
 });
+switchPersonalInfoForms()
+
