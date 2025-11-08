@@ -3,6 +3,7 @@ import { switchPersonalInfoForms } from "./forms/switch_Forms.js";
 import { personal_infoValidation } from "./forms/form_validation.js";
 import { EducationFormValidate } from "./forms/form_validation.js";
 import { ProfileInformationFormValidate } from "./forms/form_validation.js";
+import { saveUserData } from "./save Data/saveData.js";
 
 
 
@@ -75,6 +76,7 @@ nextButton.addEventListener("click", () => {
     updateProgressBar();
     showSections();
     updateActiveIcon();
+    saveUserData()
     console.log("current step" , currentStep)
   }
 });

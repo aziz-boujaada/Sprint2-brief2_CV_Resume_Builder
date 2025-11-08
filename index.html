@@ -188,10 +188,19 @@
                 <span
                   id="add_link"
                   class="absolute right-4 top-7 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
-                  >+</span
-                >
+                  >+</span>
                 <!--display links-->
-                <div id="display_links"></div>
+              </div>
+              <div id="display_links" class="p-1 "></div>
+              <div>
+                <label for="summary" class="block font-semibold mb-1">Summary</label>
+                <textarea
+                  name="summary"
+                  id="summary"
+                  placeholder="description about Yourself"
+                  class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                ></textarea>
+                <span class="summary_error input-errors"></span>
               </div>
             </form>
           </div>
@@ -210,12 +219,14 @@
               <!--education-->
               <h3
                 id="education_drop_btn"
-                class="flex justify-between items-center gap-3 m-4 p-1 rounded-lg bg-gray-200 shadow-2xl text-lg  text-gray-500 font-bold cursor-pointer hover:bg-gray-700 hover:text-white transition-all"
+                class="flex justify-between items-center gap-3 m-4 p-1 rounded-lg bg-gray-200 shadow-2xl text-lg text-gray-500 font-bold cursor-pointer hover:bg-gray-700 hover:text-white transition-all"
               >
                 Eduaction
                 <span><i class="fa-solid fa-angle-down"></i></span>
               </h3>
-              <div class="education_drop hidden_drop transition-all duration-500 ease-in-out">
+              <div
+                class="education_drop hidden_drop transition-all duration-500 ease-in-out"
+              >
                 <!--school bname -->
                 <div class="mb-4">
                   <label for="school_name" class="block font-semibold mb-1"
@@ -302,12 +313,14 @@
               <div id="experience_form">
                 <h3
                   id="exp_drop_btn"
-                  class="flex justify-between items-center gap-3 m-4 p-1 rounded-lg bg-gray-200 shadow-2xl text-lg  text-gray-500 font-bold  cursor-pointer hover:bg-gray-700 hover:text-white transition-all"
+                  class="flex justify-between items-center gap-3 m-4 p-1 rounded-lg bg-gray-200 shadow-2xl text-lg text-gray-500 font-bold cursor-pointer hover:bg-gray-700 hover:text-white transition-all"
                 >
                   Profissionell Experience
                   <span><i class="fa-solid fa-angle-down"></i></span>
                 </h3>
-                <div class="experience_drop hidden_drop transition-all duration-900 ease-in-out">
+                <div
+                  class="experience_drop hidden_drop transition-all duration-900 ease-in-out"
+                >
                   <div class="mb-4">
                     <label for="job_title" class="block font-semibold mb-1"
                       >Job title</label
@@ -643,5 +656,6 @@
     </main>
 
     <script type="module" src="./assets/js/app.js"></script>
+    <script src="./assets/js/save Data/saveData.js"></script>
   </body>
 </html>

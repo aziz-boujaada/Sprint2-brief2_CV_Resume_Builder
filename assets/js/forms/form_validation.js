@@ -5,7 +5,7 @@ export function personal_infoValidation() {
   const phone = document.getElementById("phone").value;
   const adresse = document.getElementById("address").value;
   const socialLinks = document.getElementById("links").value;
-
+  const summary = document.getElementById("summary").value
   // pessonal errors variables
   const inputsErrors = document.querySelectorAll(".input-errors");
   const nameError = document.querySelector(".name_error");
@@ -13,6 +13,7 @@ export function personal_infoValidation() {
   const phoneError = document.querySelector(".phone_error");
   const addressError = document.querySelector(".adresse_error");
   const linksError = document.querySelector(".links_error");
+  const summaryError = document.querySelector(".summary_error");
 
   inputsErrors.forEach((input_err) => {
     input_err.style.color = "red";
@@ -66,6 +67,11 @@ export function personal_infoValidation() {
   } else if (!linksRegex.test(socialLinks)) {
     linksError.textContent = "Please enter a valid URL (http:// or https://)";
     isValid = false;
+  }
+
+  if(summary == ""){
+    summaryError.textContent = "sumarry is required"
+    isValid = false
   }
 
   return isValid;
@@ -271,5 +277,6 @@ export function hobbyLanguegesValidate() {
 }
 
 export function ProfileInformationFormValidate() {
-  return hobbyLanguegesValidate()
+  return hobbyLanguegesValidate() 
 }
+
