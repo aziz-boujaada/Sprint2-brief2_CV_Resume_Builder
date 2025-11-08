@@ -1,45 +1,120 @@
 # 🧱 MakeCV - Resume Builder
 
 ## 📝 Description
-**StruoCV** is a web application that allows users to **create, customize, and download a professional resume** easily and quickly.  
-The process is guided through a **multi-step dynamic form**, providing a **smooth and intuitive user experience**.  
-The goal is to simplify resume creation while offering customization through modern templates and a responsive interface.
+**MakeCV** is a web application that helps users create professional resumes through an intuitive step-by-step process. The application features a multi-step form with validation and progress tracking.
 
 ---
 
 ## ⚙️ Key Features
 
-1. **Step-by-step Form (Stepper Form)**
-   - Navigate between multiple sections (personal info, skills, experience)
-   - Save entered data between steps
+1. **Multi-Step Form**
+   - Personal Information
+   - Education & Professional Experience
+   - Profile Information
+   - CV Download
+   - Progress tracking with visual bar
 
-2. **Dynamic Fields**
-   - Add or remove multiple skills, languages, education, experiences, and certifications
+2. **Personal Information**
+   - Profile photo upload
+   - Contact details
+   - Professional links
+   - Personal summary
+   - Form validation
 
-3. **Field Validation**
-   - Validate formats for emails, phone numbers, and URLs
-   - Display clear and instant error messages
+3. **Education & Experience**
+   - Multiple education entries
+   - Professional experience 
+   - Collapsible sections
+   - Location and date 
+   - Achievement recording
 
-4. **Progress Bar**
-   - Visual indicator showing how far the user is in the CV creation process
+4. **Profile Details**
+   - Hard and soft skills
+   - Certificates
+   - Languages   Hobbies 
 
-5. **Customizable Resume Templates**
-   - Two different templates available
-
-6. **Download CVs**
-   - Export the final CV as a **PDF**
-
-7. **Optional Local Save**
-   - Save created resumes as a json 
+5. **User Interface**
+   - Progress bar
+   - Step indicators
+   - Navigation controls
+   - Form validation
+ 
 
 ---
 
-## 🧰 Technologies Used
-- **HTML5**
-- **CSS3 / TailwindCSS**
-- **JavaScript  DOM**
-- **Git / GitHub**
-- **Trello**
+## 🛠️ Built With
+- HTML5
+- CSS3 / Tailwind CSS
+- JavaScript
+- Font Awesome Icons
+
+---
+
+## 📁 Project Structure
+```
+assets/
+├── images/
+├── js/
+│   ├── forms/
+│   └── save Data/
+└── styles/
+```
+
+---
+
+## 🚀 Getting Started
+1. Open `index.html` in your browser
+2. Fill in your information step by step
+3. Navigate through sections using Next/Previous
+4. Complete all sections to generate your CV
+
+---
+
+## 🧰 Technology Stack
+- **Frontend**
+  - HTML5
+  - CSS3 with Tailwind CSS
+  - JavaScript (ES6+)
+  - Font Awesome Icons
+- **Development Tools**
+  - Git & GitHub
+  - VS Code
+  - Chrome DevTools
+  - Trello for Project Management
+
+---
+
+## 📂 Project Structure
+```
+Sprint2-brief2_CV_Resume_Builder/
+├── assets/
+│   ├── images/        
+│   ├── js/
+│   │   ├── forms/    
+│   │   ├── save Data/ 
+│   │   └── app.js     
+│   └── styles/        
+├── index.html        
+└── README.md         
+```
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the Repository**
+   ```bash
+   git clone [repository-url]
+   ```
+
+2. **Open the Project**
+   - Navigate to the project directory
+   - Open `index.html` in a modern web browser
+
+3. **Create Your Resume**
+   - Follow the step-by-step form
+   - Fill in all required information
+   - Preview and download your CV
 
 ---
 
