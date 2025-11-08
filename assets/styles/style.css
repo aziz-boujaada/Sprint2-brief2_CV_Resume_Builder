@@ -56,3 +56,10 @@ section{
 .input-errors{
     font-size: 12px;
 }
+
+.hidden_btns{
+    display: none;
+}
+.hidden_drop{
+    display: none;
+}

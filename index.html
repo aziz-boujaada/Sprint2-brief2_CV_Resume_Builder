@@ -11,7 +11,7 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="mx-32 my-2 font-mono">
+  <body class="mx-32 my-2 font-sans">
     <!--headr-->
     <header class="flex items-center gap-2">
       <img
@@ -69,7 +69,6 @@
           </div>
         </div>
         <!--section of personal information-->
-      
 
         <section id="personal__information" class="visbility">
           <div class="flex items-center justify-center p-6">
@@ -129,7 +128,7 @@
                   required
                   class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
-                <span class="name_error  input-errors" ></span>
+                <span class="name_error input-errors"></span>
               </div>
               <!--email & phone-->
               <div class="flex gap-4 mb-4">
@@ -144,7 +143,7 @@
                     required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
-                   <span class="email_error  input-errors" ></span>
+                  <span class="email_error input-errors"></span>
                 </div>
                 <div class="w-1/2">
                   <label for="phone" class="block font-semibold mb-1"
@@ -156,7 +155,7 @@
                     placeholder="+212 625415263"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
-                   <span class="phone_error  input-errors" ></span>
+                  <span class="phone_error input-errors"></span>
                 </div>
               </div>
               <!--adresse a-->
@@ -170,7 +169,7 @@
                   placeholder="Your Address"
                   class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
-                 <span class="adresse_error  input-errors" ></span>
+                <span class="adresse_error input-errors"></span>
               </div>
 
               <div class="relative flex gap-4 mb-4">
@@ -184,7 +183,7 @@
                     placeholder="Your links EX: linkedin , GitHub , facebook..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
-                  <span class="links_error  input-errors" ></span>
+                  <span class="links_error input-errors"></span>
                 </div>
                 <span
                   id="add_link"
@@ -209,141 +208,46 @@
                 Education Information && profissionell Experience
               </h2>
               <!--education-->
-              <h3 class="text-lg text-center text-gray-500 font-bold">
+              <h3
+                id="education_drop_btn"
+                class="flex justify-between items-center gap-3 m-4 p-1 rounded-lg bg-gray-200 shadow-2xl text-lg  text-gray-500 font-bold cursor-pointer hover:bg-gray-700 hover:text-white transition-all"
+              >
                 Eduaction
+                <span><i class="fa-solid fa-angle-down"></i></span>
               </h3>
-              <!--school bname -->
-              <div class="mb-4">
-                <label for="school_name" class="block font-semibold mb-1"
-                  >School Name</label
-                >
-                <input
-                  type="text"
-                  id="school_name"
-                  placeholder="School Name EX:El farahidi high school"
-                  required
-                  class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-                <span class="school_name_error  input-errors"></span>
-              </div>
-
-              <div class="flex gap-4 mb-4">
-                <div class="w-1/2">
-                  <label for="start_date" class="block font-semibold mb-1"
-                    >Date of start</label
-                  >
-                  <input
-                    type="date"
-                    id="start_date"
-                    placeholder="EX:01/11/2025"
-                    required
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                  <span class="date_start_error  input-errors"></span>
-                </div>
-                <div class="w-1/2">
-                  <label for="end_date" class="block font-semibold mb-1"
-                    >Date of End</label
-                  >
-                  <input
-                    type="date"
-                    id="end_date"
-                    placeholder="EX:01/01/2050"
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                   <span class="date_end_error  input-errors"></span>
-                </div>
-              </div>
-
-              <div class="mb-4">
-                <label for="location" class="block font-semibold mb-1"
-                  >Location</label
-                >
-                <input
-                  type="text"
-                  id="school_location"
-                  placeholder="Your Location"
-                  class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-                  <span class="school_location_error  input-errors"></span>
-              </div>
-
-              <div class="flex gap-4 mb-4">
-                <div class="w-full">
-                  <label for="description" class="block font-semibold mb-1"
-                    >Description</label
-                  >
-                  <input
-                    type="text"
-                    id="education_description"
-                    placeholder="Your eduaction description ..."
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                   <span class="school_description_error  input-errors"></span>
-                </div>
-              </div>
-              <div class="save_education text-right">
-                <button
-                  id="save_education"
-                  class="bg-blue-800 text-white p-2 rounded-full"
-                >
-                  Add school +
-                </button>
-              </div>
-              <!--div for display education saved-->
-              <div id="saved_education"></div>
-
-              <div id="experience_form">
-                <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
-                  profissionell Experience
-                </h3>
+              <div class="education_drop hidden_drop transition-all duration-500 ease-in-out">
+                <!--school bname -->
                 <div class="mb-4">
-                  <label for="job_title" class="block font-semibold mb-1"
-                    >Job title</label
+                  <label for="school_name" class="block font-semibold mb-1"
+                    >School Name</label
                   >
                   <input
                     type="text"
-                    id="job_title"
-                    placeholder="Job Title EX: Full-stack Developer ..."
+                    id="school_name"
+                    placeholder="School Name EX:El farahidi high school"
                     required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
-                  <span class="job_title_error  input-errors"></span>
+                  <span class="school_name_error input-errors"></span>
                 </div>
-                <div class="mb-4">
-                  <label for="company_name" class="block font-semibold mb-1"
-                    >Company Name</label
-                  >
-                  <input
-                    type="text"
-                    id="company_name"
-                    placeholder="Company Name EX:Tesla ..."
-                    required
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                  <span class="company_name_error  input-errors"></span>
-                </div>
+
                 <div class="flex gap-4 mb-4">
                   <div class="w-1/2">
-                    <label
-                      for="start_date-experienc"
-                      class="block font-semibold mb-1"
+                    <label for="start_date" class="block font-semibold mb-1"
                       >Date of start</label
                     >
                     <input
                       type="date"
-                      id="start_date-experienc"
+                      id="start_date"
                       placeholder="EX:01/11/2025"
                       required
                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
-                    <span class="start_ex_error  input-errors"></span>
+                    <span class="date_start_error input-errors"></span>
                   </div>
                   <div class="w-1/2">
-                    <label
-                      for="end_date-experience"
-                      class="block font-semibold mb-1"
-                      >Date of End or (present)</label
+                    <label for="end_date" class="block font-semibold mb-1"
+                      >Date of End</label
                     >
                     <input
                       type="date"
@@ -351,52 +255,162 @@
                       placeholder="EX:01/01/2050"
                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
-                    <span class="end_ex_error  input-errors"></span>
+                    <span class="date_end_error input-errors"></span>
                   </div>
                 </div>
 
                 <div class="mb-4">
-                  <label for="company location" class="block font-semibold mb-1"
-                    >Company Location
-                  </label>
+                  <label for="location" class="block font-semibold mb-1"
+                    >Location</label
+                  >
                   <input
                     type="text"
-                    id="company_loaction"
-                    placeholder="EX:Casablanca / Rabat ..."
-                    required
+                    id="school_location"
+                    placeholder="Your Location"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
-                  <span class="company_location_error  input-errors"></span>
+                  <span class="school_location_error input-errors"></span>
                 </div>
 
-                <div class="mb-4 relative">
-                  <label for="Achievment" class="block font-semibold mb-1"
-                    >Achivement</label
+                <div class="flex gap-4 mb-4">
+                  <div class="w-full">
+                    <label for="description" class="block font-semibold mb-1"
+                      >Description</label
+                    >
+                    <input
+                      type="text"
+                      id="education_description"
+                      placeholder="Your eduaction description ..."
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <span class="school_description_error input-errors"></span>
+                  </div>
+                </div>
+                <div class="save_education text-right">
+                  <button
+                    id="save_education"
+                    class="bg-blue-800 text-white p-2 rounded-full"
                   >
-                  <input
-                    type="text"
-                    id="achievment"
-                    placeholder="EX:Devloped web application for company ..."
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                  <span class="achivment_error  input-errors"></span>
-                  <span
-                    id="add_achievment"
-                    class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
-                    >+</span
-                  >
+                    Add school +
+                  </button>
+                </div>
+                <!--div for display education saved-->
+                <div id="saved_education"></div>
+              </div>
+              <!--end of eduaction form -->
+
+              <div id="experience_form">
+                <h3
+                  id="exp_drop_btn"
+                  class="flex justify-between items-center gap-3 m-4 p-1 rounded-lg bg-gray-200 shadow-2xl text-lg  text-gray-500 font-bold  cursor-pointer hover:bg-gray-700 hover:text-white transition-all"
+                >
+                  Profissionell Experience
+                  <span><i class="fa-solid fa-angle-down"></i></span>
+                </h3>
+                <div class="experience_drop hidden_drop transition-all duration-900 ease-in-out">
+                  <div class="mb-4">
+                    <label for="job_title" class="block font-semibold mb-1"
+                      >Job title</label
+                    >
+                    <input
+                      type="text"
+                      id="job_title"
+                      placeholder="Job Title EX: Full-stack Developer ..."
+                      required
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <span class="job_title_error input-errors"></span>
+                  </div>
+                  <div class="mb-4">
+                    <label for="company_name" class="block font-semibold mb-1"
+                      >Company Name</label
+                    >
+                    <input
+                      type="text"
+                      id="company_name"
+                      placeholder="Company Name EX:Tesla ..."
+                      required
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <span class="company_name_error input-errors"></span>
+                  </div>
+                  <div class="flex gap-4 mb-4">
+                    <div class="w-1/2">
+                      <label
+                        for="start_date-experienc"
+                        class="block font-semibold mb-1"
+                        >Date of start</label
+                      >
+                      <input
+                        type="date"
+                        id="start_date-experienc"
+                        placeholder="EX:01/11/2025"
+                        required
+                        class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      />
+                      <span class="start_ex_error input-errors"></span>
+                    </div>
+                    <div class="w-1/2">
+                      <label
+                        for="end_date-experience"
+                        class="block font-semibold mb-1"
+                        >Date of End or (present)</label
+                      >
+                      <input
+                        type="date"
+                        id="end_date"
+                        placeholder="EX:01/01/2050"
+                        class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      />
+                      <span class="end_ex_error input-errors"></span>
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label
+                      for="company location"
+                      class="block font-semibold mb-1"
+                      >Company Location
+                    </label>
+                    <input
+                      type="text"
+                      id="company_loaction"
+                      placeholder="EX:Casablanca / Rabat ..."
+                      required
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <span class="company_location_error input-errors"></span>
+                  </div>
+
+                  <div class="mb-4 relative">
+                    <label for="Achievment" class="block font-semibold mb-1"
+                      >Achivement</label
+                    >
+                    <input
+                      type="text"
+                      id="achievment"
+                      placeholder="EX:Devloped web application for company ..."
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <span class="achivment_error input-errors"></span>
+                    <span
+                      id="add_achievment"
+                      class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                      >+</span
+                    >
+                  </div>
+                  <div class="save_education text-right">
+                    <button
+                      id="save_experience"
+                      class="bg-blue-800 text-white p-2 rounded-full"
+                    >
+                      Add Experience +
+                    </button>
+                  </div>
+                  <!--display the experiece that saved -->
+                  <div id="saved_experience"></div>
                 </div>
               </div>
-              <div class="save_education text-right">
-                <button
-                  id="save_experience"
-                  class="bg-blue-800 text-white p-2 rounded-full"
-                >
-                  Add Experience +
-                </button>
-              </div>
-              <!--display the experiece that saved -->
-              <div id="saved_experience"></div>
               <!--profile information-->
             </form>
           </div>
@@ -433,45 +447,47 @@
                   Skills
                 </h3>
                 <div class="">
-                <div class="mb-4 relative">
-                  <label for="skills" class="block font-semibold mb-1"
-                    >Hard Skills</label
-                  >
-                  <input
-                    type="text"
-                    id="skills"
-                    placeholder="EX:HTML , CSS , JS , REACT  ..."
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                  <span
-                    id="add_hardSkill"
-                    class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
-                    >+</span
-                  >
-                </div>
-                <!--display hard skill-->
-                <div id="display_hardSkill"></div>
+                  <div class="mb-4 relative">
+                    <label for="skills" class="block font-semibold mb-1"
+                      >Hard Skills</label
+                    >
+                    <input
+                      type="text"
+                      id="hard_skills"
+                      placeholder="EX:HTML , CSS , JS , REACT  ..."
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <span
+                      id="add_hardSkill"
+                      class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                      >+</span
+                    >
+                    <span class="hard_skill_error input-errors"></span>
+                  </div>
+                  <!--display hard skill-->
+                  <div id="display_hardSkill"></div>
 
-                <div class="mb-4 relative">
-                  <label for="skills" class="block font-semibold mb-1"
-                    >soft Skills</label
-                  >
-                  <input
-                    type="text"
-                    id="skills"
-                    placeholder="EX:team working , time managment  ..."
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                  <span
-                    id="add_softSkill"
-                    class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
-                    >+</span
-                  >
+                  <div class="mb-4 relative">
+                    <label for="skills" class="block font-semibold mb-1"
+                      >soft Skills</label
+                    >
+                    <input
+                      type="text"
+                      id="soft_skills"
+                      placeholder="EX:team working , time managment  ..."
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+
+                    <span
+                      id="add_softSkill"
+                      class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
+                      >+</span
+                    >
+                    <span class="soft_skill_error input-errors"></span>
+                  </div>
+                  <!--display soft skill-->
+                  <div id="display_softSkill"></div>
                 </div>
-                   <!--display soft skill-->
-                <div id="display_softSkill"></div>
-                </div>
-               
 
                 <h3 class="text-lg text-center text-gray-500 font-bold mt-2">
                   Certificate
@@ -487,6 +503,7 @@
                     placeholder="EX:front-end certificate ..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="certificate_name_error input-errors"></span>
                 </div>
 
                 <div class="mb-4 relative">
@@ -499,6 +516,7 @@
                     placeholder="EX: ..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="certificate_date_error input-errors"></span>
                 </div>
 
                 <div class="mb-4 relative">
@@ -513,6 +531,7 @@
                     placeholder="EX: Google , IBM , LinkedIn ..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="certificate_src_error input-errors"></span>
                 </div>
                 <div class="save_education text-right">
                   <button
@@ -555,6 +574,7 @@
                     class="absolute right-0 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
                     >+</span
                   >
+                  <span class="hobby_error input-errors"></span>
                 </div>
                 <!--display hobbies-->
                 <div id="display_hobbies"></div>
@@ -573,6 +593,7 @@
                     placeholder="EX:Arabic , English , French ..."
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="lang_error input-errors"></span>
                 </div>
 
                 <div class="mb-4 relative">
@@ -585,6 +606,7 @@
                     placeholder="EX: A1 , B1 , B2 , C1"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <span class="level_error input-errors"></span>
                 </div>
 
                 <div class="save_education text-right">
@@ -605,7 +627,9 @@
         <!--uplaod cv section-->
         <section id="uploadCv" class="visbility">upload cv</section>
 
-          <div class="streper_buttons mt-12 flex gap-3 justify-around mx-[120px]">
+        <div
+          class="streper_buttons hidden_btns mt-12 flex gap-3 justify-around mx-[120px]"
+        >
           <button
             class="previuos_btn bg-gray-600 text-white w-20 p-2 rounded-sm"
           >

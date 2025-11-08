@@ -98,18 +98,24 @@ export function EducationFormValidate() {
   //experience variables
   const jobTitle = document.getElementById("job_title").value.trim();
   const companyName = document.getElementById("company_name").value.trim();
-  const startDateEx = document.getElementById("start_date-experienc").value.trim();
+  const startDateEx = document
+    .getElementById("start_date-experienc")
+    .value.trim();
   const endDateEx = document.getElementById("end_date").value.trim();
-  const companyLocation = document.getElementById("company_loaction").value.trim();
+  const companyLocation = document
+    .getElementById("company_loaction")
+    .value.trim();
   const achievment = document.getElementById("achievment").value.trim();
 
   // experience ERROR variables
-  
+
   const jobTitleError = document.querySelector(".job_title_error");
   const companyNameError = document.querySelector(".company_name_error");
   const startExError = document.querySelector(".start_ex_error");
   const endExError = document.querySelector(".end_ex_error");
-  const companyLocationError = document.querySelector(".company_location_error");
+  const companyLocationError = document.querySelector(
+    ".company_location_error"
+  );
   const achievmentError = document.querySelector(".achivment_error");
 
   inputsErrors.forEach((input_err) => {
@@ -142,9 +148,8 @@ export function EducationFormValidate() {
     isValid = false;
   }
 
+  //experience
 
-  //experience 
-  
   if (jobTitle === "") {
     jobTitleError.textContent = "Job title is required";
     isValid = false;
@@ -169,8 +174,102 @@ export function EducationFormValidate() {
     achievmentError.textContent = "At least one achievement is required";
     isValid = false;
   }
+
   return isValid;
 }
 
+//============== PROFILE INFORMATION VALIDATION  ======================//
+export function SkillsFormValidate() {
+  /*================= Skills & Certificate form validation ===============*/
+  // Input values
+  const hardSkill = document.getElementById("hard_skills").value.trim();
+  const softSkill = document.getElementById("soft_skills").value.trim();
+  // const certificateName = document.getElementById("certificate_name").value.trim();
+  // const certificateDate = document.getElementById("certificate_date").value.trim();
+  // const certificateSource = document.getElementById("certificate-source").value.trim();
+
+  // Error spans
+  const inputsErrors = document.querySelectorAll(".input-errors");
+  const hardSkillError = document.querySelector(".hard_skill_error");
+  const softSkillError = document.querySelector(".soft_skill_error");
+  // const certificateNameError = document.querySelector(".certificate_name_error");
+  // const certificateDateError = document.querySelector(".certificate_date_error");
+  // const certificateSrcError = document.querySelector(".certificate_src_error");
+
+  // Reset all previous errors
+  inputsErrors.forEach((input_err) => {
+    input_err.style.color = "red";
+    input_err.textContent = "";
+  });
+
+  let isValidForm = true;
+
+  if (hardSkill === "") {
+    hardSkillError.textContent = "Please enter at least one hard skill.";
+    isValidForm = false;
+  }
+
+  if (softSkill === "") {
+    softSkillError.textContent = "Please enter at least one soft skill.";
+    isValidForm = false;
+  }
 
 
+  return isValidForm;
+}
+// if (certificateName === "") {
+//   certificateNameError.textContent = "Certificate name is required.";
+//   isValid = false;
+// }
+
+// if (certificateDate === "") {
+//   certificateDateError.textContent = "Please select a date of obtaining.";
+//   isValid = false;
+// }
+
+// if (certificateSource === "") {
+//   certificateSrcError.textContent = "Certificate source is required.";
+//   isValid = false;
+// }
+
+/*================= Languages & Hobbies form validation ===============*/
+
+export function hobbyLanguegesValidate() {
+  const hobby = document.getElementById("hobbies").value.trim();
+  const languege = document.getElementById("langueges").value.trim();
+  const levelLang = document.getElementById("level_lang").value.trim();
+
+  const inputsErrors = document.querySelectorAll(".input-errors");
+  const hobbyError = document.querySelector(".hobby_error");
+  const languegeError = document.querySelector(".lang_error");
+  const levelLangError = document.querySelector(".level_error");
+
+  inputsErrors.forEach((input_err) => {
+    input_err.style.color = "red";
+    input_err.textContent = "";
+  });
+
+  let isValidForm = true;
+  if (hobby === "") {
+    hobbyError.textContent = "Please enter at least one hobby.";
+    isValidForm = false;
+  }
+
+  if (languege === "") {
+    languegeError.textContent = "Please enter a language.";
+    isValidForm = false;
+  }
+
+  if (levelLang === "") {
+    levelLangError.textContent =
+      "Please enter the language level (e.g., A1, B2, C1).";
+    isValidForm = false;
+  }
+
+
+  return isValidForm;
+}
+
+export function ProfileInformationFormValidate() {
+  return hobbyLanguegesValidate()
+}

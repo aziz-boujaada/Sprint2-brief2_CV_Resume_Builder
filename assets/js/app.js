@@ -2,6 +2,7 @@
 import { switchPersonalInfoForms } from "./forms/switch_Forms.js";
 import { personal_infoValidation } from "./forms/form_validation.js";
 import { EducationFormValidate } from "./forms/form_validation.js";
+import { ProfileInformationFormValidate } from "./forms/form_validation.js";
 
 
 
@@ -15,6 +16,7 @@ const personalInfoSection = document.getElementById("personal__information");
 const education_Pro_experiencSection = document.getElementById("education_pro-experience");
 const profileInfoSection = document.getElementById("profile_information");
 const uploadCvSection = document.getElementById("uploadCv");
+
 
 let progress = 0;
 let totalSteps = 4;
@@ -63,8 +65,9 @@ nextButton.addEventListener("click", () => {
  if(currentStep == 1){
   isValid = personal_infoValidation()
  }else if(currentStep == 2){
-  isValid = EducationFormValidate() 
-   
+  isValid = EducationFormValidate()  
+ }else if(currentStep == 3){
+  isValid = ProfileInformationFormValidate()
  }
   
   if (isValid && currentStep < totalSteps) {
@@ -72,6 +75,7 @@ nextButton.addEventListener("click", () => {
     updateProgressBar();
     showSections();
     updateActiveIcon();
+    console.log("current step" , currentStep)
   }
 });
 previousButton.addEventListener("click", () => {
@@ -84,3 +88,18 @@ previousButton.addEventListener("click", () => {
 });
 switchPersonalInfoForms()
 personal_infoValidation()
+
+
+// drop down for education and experience form 
+const educationDropFormBtn = document.getElementById("education_drop_btn")
+const experienceDropFormBtn = document.getElementById("exp_drop_btn")
+const educationForm = document.querySelector(".education_drop")
+const experienceForm = document.querySelector(".experience_drop")
+
+educationDropFormBtn.addEventListener('click' , ()=>{
+  educationForm.classList.toggle("hidden_drop")
+})
+experienceDropFormBtn.addEventListener('click' , ()=>{
+  experienceForm.classList.toggle("hidden_drop")
+})
+
