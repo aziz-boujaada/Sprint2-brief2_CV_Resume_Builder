@@ -91,6 +91,47 @@ function saveLinks() {
       .join("");
   });
 }
+
+  //dispaly education information function
+  function dispalyEducation() {
+    const saveEducationBtn = document.getElementById("save_education");
+    const DispalyEducationZone = document.getElementById("display_education")
+    saveEducationBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+        // save eduaction information
+
+  const schoolName = document.getElementById("school_name").value.trim();
+  const startDate = document.getElementById("start_date").value.trim();
+  const endDate = document.getElementById("end_date").value.trim();
+  const schoolLocation = document
+    .getElementById("school_location")
+    .value.trim();
+  const educationDescription = document
+    .getElementById("education_description")
+    .value.trim();
+
+  UserCvData.educationInfo.push({
+    schoolName,
+    startDate,
+    endDate,
+    schoolLocation,
+    educationDescription,
+  });
+      DispalyEducationZone.innerHTML = UserCvData.educationInfo.map((edu , index)=>{
+           return `
+            <div data-index = "${index}" class = "flex flex-col gap-4 bg-gray-300 p-1 rounded-md shadow-lg my-2 ">
+            <p>school Name : ${edu.schoolName}</p> 
+             <p>start date : ${edu.startDate}</p>
+             <p>end date : ${edu.endDate}</p>
+             <p>location : ${edu.schoolLocation}</p>
+             <p>description : ${edu.educationDescription}</p>
+             <span><i class="fa-solid fa-trash"></i></span>
+             </div>
+            `
+      }).join("")
+       console.log("add school button work " , UserCvData.educationInfo)
+    });
+  }
 export function saveUserData() {
   //save  personal information
   const fullname = document.getElementById("full_name").value;
@@ -107,34 +148,13 @@ export function saveUserData() {
 
   console.log(UserCvData.personalInfo);
 
-  // save eduaction information
-
-  const saveEducationBtn = document.getElementById("save_education");
-  saveEducationBtn.addEventListener("click", (e) => {
-    const schoolName = document.getElementById("school_name").value.trim();
-    const startDate = document.getElementById("start_date").value.trim();
-    const endDate = document.getElementById("end_date").value.trim();
-    const schoolLocation = document
-      .getElementById("school_location")
-      .value.trim();
-    const educationDescription = document
-      .getElementById("education_description")
-      .value.trim();
-    e.preventDefault();
-    UserCvData.educationInfo.push({
-      schoolName,
-      startDate,
-      endDate,
-      schoolLocation,
-      educationDescription,
-    });
-
-    console.log("eduaction data", UserCvData.educationInfo)
-
-  });
-
-  //save data in localstorgae
+  console.log("eduaction data", UserCvData.educationInfo);
   localStorage.setItem("personalInformation", JSON.stringify(UserCvData));
-}
 
+}
+dispalyEducation()
 saveLinks();
+
+
+//   //save data in localstorgae
+
