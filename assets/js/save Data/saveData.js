@@ -92,46 +92,87 @@ function saveLinks() {
   });
 }
 
-  //dispaly education information function
-  function dispalyEducation() {
-    const saveEducationBtn = document.getElementById("save_education");
-    const DispalyEducationZone = document.getElementById("display_education")
-    saveEducationBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-        // save eduaction information
+//dispaly education information function
 
-  const schoolName = document.getElementById("school_name").value.trim();
-  const startDate = document.getElementById("start_date").value.trim();
-  const endDate = document.getElementById("end_date").value.trim();
-  const schoolLocation = document
-    .getElementById("school_location")
-    .value.trim();
-  const educationDescription = document
-    .getElementById("education_description")
-    .value.trim();
-
-  UserCvData.educationInfo.push({
-    schoolName,
-    startDate,
-    endDate,
-    schoolLocation,
-    educationDescription,
-  });
-      DispalyEducationZone.innerHTML = UserCvData.educationInfo.map((edu , index)=>{
-           return `
-            <div data-index = "${index}" class = "flex flex-col gap-4 bg-gray-300 p-1 rounded-md shadow-lg my-2 ">
+function renderEducation() {
+  const DispalyEducationZone = document.getElementById("display_education");
+  DispalyEducationZone.innerHTML = UserCvData.educationInfo
+    .map((edu, index) => {
+      return `
+            <div class = "education_card  flex justify-between gap-4 bg-gray-300 p-1 rounded-md shadow-lg my-2 ">
+            <div>
             <p>school Name : ${edu.schoolName}</p> 
+            <p>location : ${edu.schoolLocation}</p>
+            <p>description : ${edu.educationDescription}</p>
+            </div>
+             <div>
              <p>start date : ${edu.startDate}</p>
              <p>end date : ${edu.endDate}</p>
-             <p>location : ${edu.schoolLocation}</p>
-             <p>description : ${edu.educationDescription}</p>
-             <span><i class="fa-solid fa-trash"></i></span>
              </div>
-            `
-      }).join("")
-       console.log("add school button work " , UserCvData.educationInfo)
+             <span class ="edit_education text-white bg-orange-400 p-1 rounded-full w-[120px] h-[30px] text-center">Edit<i class="fa-solid fa-pen"></i></span>
+             <span class ="delet_education text-white bg-red-700 p-1 rounded-full  w-[120px] h-[30px] text-center">Delet<i class="fa-solid fa-trash"></i></span>
+             </div>
+            `;
+    })
+
+    .join("");
+  // const index = Number(
+  //   document.querySelector(".education_card ").getAttribute("data-index")
+  // );
+  deletSchool();
+}
+function saveEducation() {
+  const saveEducationBtn = document.getElementById("save_education");
+
+  saveEducationBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    // save eduaction information
+    const schoolName = document.getElementById("school_name").value.trim();
+    const startDate = document.getElementById("start_date").value.trim();
+    const endDate = document.getElementById("end_date").value.trim();
+    const schoolLocation = document
+      .getElementById("school_location")
+      .value.trim();
+    const educationDescription = document
+      .getElementById("education_description")
+      .value.trim();
+
+    if (
+      schoolName == "" ||
+      startDate == "" ||
+      startDate == "" ||
+      schoolLocation == "" ||
+      educationDescription == ""
+    )
+      return;
+    UserCvData.educationInfo.push({
+      schoolName,
+      startDate,
+      endDate,
+      schoolLocation,
+      educationDescription,
     });
-  }
+    renderEducation();
+    
+
+    console.log("add school button work ", UserCvData.educationInfo);
+  });
+}
+function deletSchool() {
+  const deletEducationBtn = document.getElementsByClassName("delet_education");
+  Array.from(deletEducationBtn).forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      if (UserCvData.educationInfo && UserCvData.educationInfo.length > index) {
+        const toRemove = UserCvData.educationInfo[index];
+        UserCvData.educationInfo.splice(index, 1);
+        console.log(index);
+        renderEducation();
+        console.log("this one is removed ", toRemove);
+      }
+    });
+  });
+}
+
 export function saveUserData() {
   //save  personal information
   const fullname = document.getElementById("full_name").value;
@@ -150,11 +191,8 @@ export function saveUserData() {
 
   console.log("eduaction data", UserCvData.educationInfo);
   localStorage.setItem("personalInformation", JSON.stringify(UserCvData));
-
 }
-dispalyEducation()
+renderEducation();
 saveLinks();
-
-
+saveEducation();
 //   //save data in localstorgae
-
