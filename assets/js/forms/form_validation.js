@@ -109,7 +109,7 @@ export function EducationFormValidate() {
     .value.trim();
   const endDateEx = document.getElementById("end_date").value.trim();
   const companyLocation = document
-    .getElementById("company_loaction")
+    .getElementById("company_location")
     .value.trim();
   const achievment = document.getElementById("achievment").value.trim();
 
