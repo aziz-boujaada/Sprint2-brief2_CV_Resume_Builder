@@ -20,6 +20,8 @@ export function getData() {
   const UserCvData = JSON.parse(localStorage.getItem("cvData"));
   console.log("date fetched from local strage", UserCvData);
 
+  if(!UserCvData)return
+
   imageCV.src = `${UserCvData.personalInfo.image}`;
   specializing.innerHTML = `${UserCvData.personalInfo.userJob_title}`;
   fullName.innerHTML = `${UserCvData.personalInfo.name}`;
