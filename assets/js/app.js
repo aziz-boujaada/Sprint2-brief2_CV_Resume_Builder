@@ -1,13 +1,12 @@
-
 import { switchPersonalInfoForms } from "./forms/switch_Forms.js";
 import { personal_infoValidation } from "./forms/form_validation.js";
 import { EducationFormValidate } from "./forms/form_validation.js";
 import { ProfileInformationFormValidate } from "./forms/form_validation.js";
 import { saveAllData } from "./save Data/saveData.js";
 import { saveProfileInfo } from "./save Data/saveData.js";
+import { getData } from "./cvTamplate/tamplate_1.js";
 
-
-
+const streperBtns = document.getElementById("streper_buttons")
 const nextButton = document.querySelector(".next_btn");
 const previousButton = document.querySelector(".previuos_btn");
 const progressBar = document.querySelector(".progress_bar");
@@ -15,10 +14,11 @@ const personlaInfoIcon = document.querySelector(".personal_info--icon");
 const porogressIcons = document.querySelectorAll(".progress__icons");
 
 const personalInfoSection = document.getElementById("personal__information");
-const education_Pro_experiencSection = document.getElementById("education_pro-experience");
+const education_Pro_experiencSection = document.getElementById(
+  "education_pro-experience"
+);
 const profileInfoSection = document.getElementById("profile_information");
 const uploadCvSection = document.getElementById("uploadCv");
-
 
 let progress = 0;
 let totalSteps = 4;
@@ -45,7 +45,10 @@ function updateActiveIcon() {
   });
 }
 updateActiveIcon();
-
+if(currentStep ===  4){
+  nextButton.style.display = "none"
+  previousButton.style.display = "none"
+}
 function showSections() {
   currentStep == 1
     ? personalInfoSection.classList.remove("visbility")
@@ -62,24 +65,27 @@ function showSections() {
 }
 showSections();
 nextButton.addEventListener("click", () => {
-
   let isValid = false;
- if(currentStep == 1){
-  isValid = personal_infoValidation()
- }else if(currentStep == 2){
-  isValid = EducationFormValidate()  
- }else if(currentStep == 3){
-  isValid = ProfileInformationFormValidate()
- }
-  
+  if (currentStep == 1) {
+    isValid = personal_infoValidation();
+   
+  } else if (currentStep == 2) {
+    isValid = EducationFormValidate();
+   
+  } else if (currentStep == 3) {
+    isValid = ProfileInformationFormValidate();
+   
+  }
+
   if (isValid && currentStep < totalSteps) {
     currentStep++;
     updateProgressBar();
     showSections();
     updateActiveIcon();
-    saveProfileInfo()
+    saveProfileInfo();
     saveAllData()
-    console.log("current step" , currentStep)
+   getData()
+    console.log("current step", currentStep);
   }
 });
 previousButton.addEventListener("click", () => {
@@ -87,23 +93,23 @@ previousButton.addEventListener("click", () => {
     currentStep--;
     updateProgressBar();
     showSections();
-      updateActiveIcon()
+    updateActiveIcon();
   }
 });
-switchPersonalInfoForms()
-personal_infoValidation()
+switchPersonalInfoForms();
+personal_infoValidation();
 
+// drop down for education and experience form
+const educationDropFormBtn = document.getElementById("education_drop_btn");
+const experienceDropFormBtn = document.getElementById("exp_drop_btn");
+const educationForm = document.querySelector(".education_drop");
+const experienceForm = document.querySelector(".experience_drop");
 
-// drop down for education and experience form 
-const educationDropFormBtn = document.getElementById("education_drop_btn")
-const experienceDropFormBtn = document.getElementById("exp_drop_btn")
-const educationForm = document.querySelector(".education_drop")
-const experienceForm = document.querySelector(".experience_drop")
+educationDropFormBtn.addEventListener("click", () => {
+  educationForm.classList.toggle("hidden_drop");
+});
+experienceDropFormBtn.addEventListener("click", () => {
+  experienceForm.classList.toggle("hidden_drop");
+});
 
-educationDropFormBtn.addEventListener('click' , ()=>{
-  educationForm.classList.toggle("hidden_drop")
-})
-experienceDropFormBtn.addEventListener('click' , ()=>{
-  experienceForm.classList.toggle("hidden_drop")
-})
 

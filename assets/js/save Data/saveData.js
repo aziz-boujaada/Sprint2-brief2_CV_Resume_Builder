@@ -1,5 +1,7 @@
 const UserCvData = {
   personalInfo: {
+    image: "",
+    userJob_title:"",
     name: "",
     email: "",
     phone: "",
@@ -22,14 +24,50 @@ const UserCvData = {
   langueges: [],
 };
 
+function previewImg() {
+  const imageInput = document.getElementById("image_input");
+  const previewImg = document.getElementById("preview_img");
+  const hideLabel = document.querySelector(".hide_lable");
+  
+  imageInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+
+        previewImg.src = e.target.result;
+        previewImg.classList.remove("hidden");
+        hideLabel.style.display = "none";
+    
+        UserCvData.personalInfo.image = e.target.result;
+
+      };
+      reader.readAsDataURL(file);
+    } else {
+      previewImg.src = "";
+      previewImg.classList.add("hidden");
+      hideLabel.style.display = "flex";
+    }
+  })
+}
+
+previewImg()
+
+// previewImg()
 export function saveProfileInfo() {
+  // const imageSaved =   previewImg.src
+  ///image
+
   //save  personal information
+  const userJobTitle = document.getElementById("user_job_title").value;
   const fullname = document.getElementById("full_name").value;
   const Email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
   const adresse = document.getElementById("address").value;
   const summary = document.getElementById("summary").value;
-
+  
+  //////
+  UserCvData.personalInfo.userJob_title = userJobTitle
   UserCvData.personalInfo.name = fullname;
   UserCvData.personalInfo.email = Email;
   UserCvData.personalInfo.phone = phone;
@@ -39,7 +77,7 @@ export function saveProfileInfo() {
   console.log(UserCvData.personalInfo);
 
   console.log("eduaction data", UserCvData.educationInfo);
-  saveAllData();
+saveAllData()
 }
 function saveLinks() {
   const addLinkBtn = document.getElementById("add_link");
@@ -551,15 +589,15 @@ function saveLanguege() {
       lang: languege.value.trim(),
       level: levelLang.value.trim(),
     };
-    if(LanguegeData.lang == "" || LanguegeData.level == ""){
-       alert("les champ est vide")
-      return
+    if (LanguegeData.lang == "" || LanguegeData.level == "") {
+      alert("les champ est vide");
+      return;
     }
-      UserCvData.langueges.push(LanguegeData);
+    UserCvData.langueges.push(LanguegeData);
     renderLangueg();
     console.log("languge:", UserCvData.langueges);
-   languege.value= ""
-   levelLang.value = ""
+    languege.value = "";
+    levelLang.value = "";
   });
 }
 saveLanguege();

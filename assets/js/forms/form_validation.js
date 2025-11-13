@@ -1,5 +1,7 @@
 export function personal_infoValidation() {
   /*================= Personal information form validation=============== */
+
+  const userJobTitle = document.getElementById("user_job_title").value;
   const fullname = document.getElementById("full_name").value;
   const Email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
@@ -8,6 +10,7 @@ export function personal_infoValidation() {
   const summary = document.getElementById("summary").value
   // pessonal errors variables
   const inputsErrors = document.querySelectorAll(".input-errors");
+  const job_titleError = document.querySelector(".job_title_error");
   const nameError = document.querySelector(".name_error");
   const emailError = document.querySelector(".email_error");
   const phoneError = document.querySelector(".phone_error");
@@ -28,6 +31,10 @@ export function personal_infoValidation() {
 
   let isValid = true;
 
+  if (userJobTitle === "") {
+    job_titleError.textContent = "Job Title is required";
+    isValid = false;
+  } 
   // Validate name
   if (fullname === "") {
     nameError.textContent = "Name is required";

@@ -9,20 +9,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="mx-32 my-2 font-sans">
-    <!--headr-->
-    <header class="flex items-center gap-2">
-      <img
-        class="h-8 w-8"
-        src="./assets/images/logo cv.png"
-        alt="cv make logo"
-      />
-      <span class="font-mono text-blue-600">CV make</span>
-    </header>
-
-    <main class="my-40 bg-gray-200 h-auto p-12 drop-shadow-2xl rounded-md">
+  <body class="mx-32 my-2 font-sans bg-blue-950">
+    <main class="my-40 h-auto p-12 drop-shadow-4xl rounded-md">
+      <header class="text-center py-20 text-white">
+        <h1 class="text-5xl font-extrabold mb-4">CV MAKER</h1>
+        <h2 class="text-2xl font-medium opacity-90 mb-6">
+          Build a Professional CV in Minutes
+        </h2>
+      </header>
       <section class="progression px-12 py-4">
         <div class="progress h-2 w-full bg-gray-700 rounded-full relative">
           <span
@@ -84,10 +81,10 @@
                 <div class="flex items-center justify-center w-full">
                   <label
                     for="dropzone-file"
-                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                    class="relative flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                   >
                     <div
-                      class="flex flex-col items-center justify-center pt-5 pb-6"
+                      class="hide_lable flex flex-col items-center justify-center pt-5 pb-6"
                     >
                       <svg
                         class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
@@ -112,9 +109,33 @@
                         SVG, PNG, JPG or GIF (MAX. 800x400px)
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" class="hidden" />
+                    <input
+                      id="image_input"
+                      type="file"
+                      class="absolute h-full w-full top-0 left-0 opacity-0"
+                    />
+                    <img
+                      class="hidden w-[200px] h-[200px] rounded-full"
+                      id="preview_img"
+                      src=""
+                      alt="Image Preview"
+                    />
                   </label>
                 </div>
+              </div>
+              <!--job title-->
+              <div class="mb-4">
+                <label for="name" class="block font-semibold mb-1"
+                  >Job Title</label
+                >
+                <input
+                  type="text"
+                  id="user_job_title"
+                  placeholder="EX: Developer Full-stack "
+                  required
+                  class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <span class="job_title_error input-errors"></span>
               </div>
               <!--full name-->
               <div class="mb-4">
@@ -188,12 +209,15 @@
                 <span
                   id="add_link"
                   class="absolute right-0 top-7 bg-blue-700 text-white font-bold text-center w-12 pt-1 h-[2rem] rounded-md hover:bg-blue-400 transition-all cursor-pointer"
-                  >+</span>
+                  >+</span
+                >
                 <!--display links-->
               </div>
               <div id="display_links" class="p-1 rounded-full"></div>
               <div>
-                <label for="summary" class="block font-semibold mb-1">Summary</label>
+                <label for="summary" class="block font-semibold mb-1"
+                  >Summary</label
+                >
                 <textarea
                   name="summary"
                   id="summary"
@@ -639,24 +663,124 @@
           </div>
         </section>
         <!--uplaod cv section-->
-        <section id="uploadCv" class="visbility">upload cv</section>
 
-        <div
-          class="streper_buttons hidden_btns mt-12 flex gap-3 justify-around mx-[120px]"
-        >
-          <button
-            class="previuos_btn bg-gray-600 text-white w-20 p-2 rounded-sm"
-          >
-            Previuos
-          </button>
-          <button class="next_btn bg-blue-800 text-white w-20 p-2 rounded-sm">
-            Next
-          </button>
-        </div>
+        <section id="uploadCv" class="visbility">
+        
+<div
+  id="cv_tamplate"
+  class="max-w-3xl mx-auto my-6 bg-gradient-to-br from-white via-gray-50 to-gray-100 shadow-xl rounded-2xl p-6 border border-gray-100"
+>
+  <header
+    class="flex items-center justify-between border-b border-gray-200 pb-4 mb-6"
+  >
+    <div>
+      <h1 id="specializing" class="text-3xl font-extrabold text-gray-900 tracking-tight"></h1>
+      <h2 id="user_name" class="text-xl font-semibold text-gray-700 mt-1"></h2>
+      <p id="user_email" class="text-sm text-gray-600 mt-2"></p>
+      <p id="user_phone" class="text-sm text-gray-600"></p>
+      <p id="user_address" class="text-sm text-gray-600"></p>
+      <div
+        id="user_links"
+        class="mt-2 flex gap-2 flex-wrap text-blue-600 underline text-sm"
+      ></div>
+    </div>
+    <img
+      src=""
+      alt="Profile Picture"
+      id="Cvimage"
+      class="w-24 h-24 object-cover rounded-full border-2 border-blue-100 shadow-md"
+    />
+  </header>
+
+  <section class="mb-1">
+    <h2 class="text-lg font-bold text-gray-800 border-b-2 border-blue-100 pb-1 mb-2">
+      About
+    </h2>
+    <div id="cv_summary" class="text-gray-700 text-sm leading-snug"></div>
+  </section>
+
+  <section class="mb-1">
+    <h2 class="text-lg font-bold text-gray-800 border-b-2 border-blue-100 pb-1 mb-2">
+      Education
+    </h2>
+    <div id="educationInfo" class="space-y-2 text-sm text-gray-700"></div>
+  </section>
+
+  <section class="mb-1">
+    <h2 class="text-lg font-bold text-gray-800 border-b-2 border-blue-100 pb-1 mb-2">
+      Experience
+    </h2>
+    <div id="experienceInfo" class="space-y-2 text-sm text-gray-700"></div>
+  </section>
+
+  <section class="mb-1">
+    <h2 class="text-lg font-bold text-gray-800 border-b-2 border-blue-100 pb-1 mb-2">
+      Skills
+    </h2>
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <h3 class="font-semibold text-sm text-gray-700 mb-1 uppercase tracking-wide">
+          Hard Skills
+        </h3>
+        <div id="Cv_hard_skill" class="space-y-1 text-gray-600"></div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-sm text-gray-700 mb-1 uppercase tracking-wide">
+          Soft Skills
+        </h3>
+        <div id="Cv_soft_skills" class="space-y-1 text-gray-600"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-1">
+    <h2 class="text-lg font-bold text-gray-800 border-b-2 border-blue-100 pb-1 mb-2">
+      Certificates
+    </h2>
+    <div id="Cv_certificates" class="space-y-2 text-sm text-gray-700"></div>
+  </section>
+
+  <section class="mb-1">
+    <h2 class="text-lg font-bold text-gray-800 border-b-2 border-blue-100 pb-1 mb-2">
+      Hobbies
+    </h2>
+    <div id="Cv_hobbies" class="space-y-1 text-sm text-gray-700"></div>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-gray-800 border-b-2 border-blue-100 pb-1 mb-2">
+      Languages
+    </h2>
+    <div
+      id="Cv_languages"
+      class="space-y-1 text-sm flex flex-wrap items-center gap-3 text-gray-700"
+    ></div>
+  </section>
+</div>
+
+
+<button
+  id="Download_btn"
+  class="block mx-auto mt-8 bg-blue-600 hover:bg-blue-700 transition-colors text-white font-medium py-2 px-6 rounded-lg shadow-md"
+>
+  Download
+</button>
+
+         
+        </section>
       </section>
+      <div id="streper_buttons" class=" mt-4 flex gap-3 justify-around">
+        <button class="previuos_btn bg-gray-600 text-white w-28 p-2 rounded-sm">
+          Previuos
+        </button>
+        <button class="next_btn bg-blue-800 text-white w-28 p-2 rounded-sm">
+          Next
+        </button>
+      </div>
     </main>
 
     <script type="module" src="./assets/js/app.js"></script>
     <script src="./assets/js/save Data/saveData.js"></script>
+    <script type="module" src="./assets/js/cvTamplate/tamplate_1.js"></script>
   </body>
 </html>

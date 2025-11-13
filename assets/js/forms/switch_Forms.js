@@ -19,10 +19,10 @@ export function switchPersonalInfoForms() {
     currentForm == 1
       ? nextForm.classList.add("should_toClick")
       : nextForm.classList.remove("should_toClick");
-      // // for hidden button in skills form
-    currentForm == 1
-      ? streperButtonsDiv.classList.add("hidden_btns")
-      : streperButtonsDiv.classList.remove("hidden_btns");
+    //   // // for hidden button in skills form
+    // currentForm == 1
+    //   ? streperButtonsDiv.classList.add("hidden_btns")
+    //   : streperButtonsDiv.classList.remove("hidden_btns");
     currentForm == 2
       ? hobbiesLanguege_Form.classList.remove("profile_info_visibility")
       : hobbiesLanguege_Form.classList.add("profile_info_visibility");
